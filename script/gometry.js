@@ -1,34 +1,40 @@
-function calculateTriangleArea() {
-  const baseInput = document.getElementById('triangle-base');
-  const baseValueText = baseInput.value;
-  const baseText = parseFloat(baseValueText);
-  console.log(baseText);
-  const heightInput = document.getElementById('triangle-height');
-  const heightValueText = heightInput.value;
-  const heightText = parseFloat(heightValueText);
-  console.log(heightText);
 
+
+function calculateTriangleArea(){
+  const baseText = getInputValue('triangle-base');
+  const heightText = getInputValue('triangle-height');
   const area = 0.5 * baseText * heightText;
-  console.log(area);
-  
-  const areaSpan = document.getElementById('triangle-area');
-  areaSpan.innerText = area;
+  setElementInnerText('triangle-area', area);
+}
+ 
+function calculateRectangleArea(){
+  const rectanglerWitdh = getInputValue('rectangle-witdh');
+  const rectangleHeight = getInputValue('rectangle-height')
+  const area = rectanglerWitdh * rectangleHeight;
+  setElementInnerText('rectangle-area', area);
 }
 
-function calculateRectangleArea(){
-  const widthInput = document.getElementById('rectangle-width');
-  const widthValue = widthInput.value;
-  const width = parseFloat(widthValue);
-  console.log(width);
+function calculateParallelogramArea(){
+   const base = getInputValue('parallelogram-width');
+  const lenght = getInputValue('parallelogram-lenght');
+  const area = base * lenght ;
+  setElementInnerText('parallelogram-area', area);
+}
 
-  const lenghtInput = document.getElementById('rectangle-lenght');
-  lenghtValue = lenghtInput.value;
-  const lenght = parseFloat(lenghtValue);
-  console.log(lenght); 
+function calculateEllipseArea(){
+  const majorRadius = getInputValue('ellipse-major-redius');
+  const minorRadius = getInputValue('ellipse-minor-redius');
+  const area = 3.14 * majorRadius * minorRadius ;
+  setElementInnerText('ellipse-area', area);
+}
 
-  const area = width * lenght;
-  console.log(area);
-  const areaSpan1 = document.getElementById('rectangle-area')
-  areaSpan1.innerText = area;
-   
+function getInputValue(id){``
+  const inputField = document.getElementById(id);
+  const inputVAlueText = inputField.value;
+  const value = parseFloat(inputVAlueText);
+  return value;
+}
+function setElementInnerText(elementId, area){
+  const element = document.getElementById(elementId);
+  element.innerText = area;
 }
